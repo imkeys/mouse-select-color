@@ -5,38 +5,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>取色</title>
+	<link rel="stylesheet" href="./style.css">
 	<script src="//cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
 	<script src="./color-selector.js"></script>
 </head>
 
 <body>
-	<div>
-		<input id="edt_url" value="http://www.sina.com.cn">
-		<button onclick="openurl()">Go</button>
-		<button onclick="showSelector()">取色</button>
-		<span style="width: 100px;" id="color_panel">Color</span>
+	<div class="header">
+		<div class="color_panel">
+			<span id="color_panel"></span>
+		</div>
+		<button id="color_btn" onclick="showSelector()">取色</button>
 	</div>
-	<div>
-		<dd>
-			ddd
-		</dd>
+	<div class="cover">
+		<img src="./img.jpg" alt="">
 	</div>
-	<div style="background-color: blueviolet;color:red">hewin</div>
-	<script>
-		function openurl() {
-			let url = document.getElementById('edt_url').value
-			document.getElementById('iframe').src = url
-		}
 
-		var selector=null
-		function showSelector(){
-				if(selector==null){
-						selector=new ColorSelector()
-						selector.onselected=function(r,g,b,a){
-								document.getElementById('color_panel').style.backgroundColor=`rgb(${r},${g},${b})`
-						}
+	<script>
+		let selector = null
+		let $dom = document.getElementById('color_panel')
+
+		function showSelector() {
+			if (selector == null) {
+				selector = new ColorSelector()
+				selector.onselected = function (r, g, b, a) {
+					console.log('r, g, b, a ==> ', r, g, b, a)
+					let color = `rgb(${r}, ${g}, ${b})`
+					$dom.style.backgroundColor = color
+					$dom.style.borderColor = color
 				}
-				selector.show()
+			}
+			selector.show()
 		}
 	</script>
 </body>

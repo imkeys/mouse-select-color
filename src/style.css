@@ -1,0 +1,39 @@
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+  padding: 15px 20px;
+}
+.cover {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.cover img {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.color_panel {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 3px 0 0;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);
+}
+.color_panel span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  border: 1px solid #dddddd;
+}
+#color_btn {
+  display: inline-block;
+  vertical-align: middle;
+}

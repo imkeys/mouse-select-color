@@ -7,12 +7,13 @@ class ColorSelector {
 	onselected = function (r, g, b, a) { }
 	constructor() {
 		this._img = new Image()
-		this._canvas = document.createElement("canvas")
+		this._canvas = document.createElement('canvas')
 		this._canvas.style.cursor = 'crosshair';
-		this._canvas.style.position = "absolute"
-		this._canvas.style.top = "0px"
-		this._canvas.style.left = "0px"
-		this._canvas.style.display = "none"
+		this._canvas.style.position = 'absolute'
+		this._canvas.style.top = '0px'
+		this._canvas.style.left = '0px'
+		this._canvas.style.zIndex = 9999
+		this._canvas.style.display = 'none'
 		this._canvas.addEventListener('mousemove', this._mousemove.bind(this))
 		this._canvas.addEventListener('mousedown', this._mousedown.bind(this))
 		document.body.appendChild(this._canvas)
@@ -22,7 +23,7 @@ class ColorSelector {
 		return `rgba(${r},${g},${b},${a})`
 	}
 	get currentColor() {
-		let ctx = this._canvas.getContext("2d")
+		let ctx = this._canvas.getContext('2d')
 		let imgData = ctx.getImageData(this._curPoint.x, this._curPoint.y, 1, 1)
 		let r = imgData.data[0];
 		let g = imgData.data[1];
@@ -40,12 +41,13 @@ class ColorSelector {
 	}
 	_mousedown(e) {
 		if (e.buttons !== 2) { //非右击
-			let ctx = this._canvas.getContext("2d")
+			let ctx = this._canvas.getContext('2d')
 			let imgData = ctx.getImageData(this._curPoint.x, this._curPoint.y, 1, 1)
 			let red = imgData.data[0];
 			let green = imgData.data[1];
 			let blue = imgData.data[2];
-			let alpha = imgData.data[3];
+			let alpha = imgData.data[3] / 255;
+			console.log('imgData ==> ', imgData)
 			this.onselected(red, green, blue, alpha)
 		}
 		e.stopPropagation()
@@ -53,7 +55,7 @@ class ColorSelector {
 
 	}
 	paint() {
-		let ctx = this._canvas.getContext("2d")
+		let ctx = this._canvas.getContext('2d')
 		ctx.globalCompositeOperation = 'source-over'
 		ctx.strokeStyle = '#FFFFFF'
 		ctx.fillStyle = '#FFFFFF'
@@ -128,7 +130,7 @@ class ColorSelector {
 		let c = await html2canvas(document.body, {
 			//scale:4,
 			useCORS: true,
-			backgroundColor: "#FFF"
+			backgroundColor: '#FFF'
 		})
 		this._canvas.width = document.body.clientWidth
 		this._canvas.height = document.body.clientHeight
@@ -139,7 +141,6 @@ class ColorSelector {
 
 			this.paint()
 		}
-		this._img.src = c.toDataURL("image/png")
+		this._img.src = c.toDataURL('image/png')
 	}
-
 }
