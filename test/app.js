@@ -6,6 +6,5 @@ class person {
   }
   ask () {
     console.log(`Hello, my name is ${this.name}, ${this.age} years, come form ${this.county}.`)
-  }
-  
+  }  
 }
