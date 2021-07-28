@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>取色</title>
+	<script src="//cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+	<script src="./color-selector.js"></script>
+</head>
+
+<body>
+	<div>
+		<input id="edt_url" value="http://www.sina.com.cn">
+		<button onclick="openurl()">Go</button>
+		<button onclick="showSelector()">取色</button>
+		<span style="width: 100px;" id="color_panel">Color</span>
+	</div>
+	<div>
+		<dd>
+			ddd
+		</dd>
+	</div>
+	<div style="background-color: blueviolet;color:red">hewin</div>
+	<script>
+		function openurl() {
+			let url = document.getElementById('edt_url').value
+			document.getElementById('iframe').src = url
+		}
+
+		var selector=null
+		function showSelector(){
+				if(selector==null){
+						selector=new ColorSelector()
+						selector.onselected=function(r,g,b,a){
+								document.getElementById('color_panel').style.backgroundColor=`rgb(${r},${g},${b})`
+						}
+				}
+				selector.show()
+		}
+	</script>
+</body>
+
+</html>
