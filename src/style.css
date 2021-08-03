@@ -19,6 +19,7 @@
   display: block;
   width: 100vw;
   height: 100vh;
+  object-fit: contain;
 }
 .color_panel {
   display: inline-block;
