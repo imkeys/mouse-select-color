@@ -14,10 +14,16 @@
   top: 0;
   bottom: 0;
   z-index: 1;
+  text-align: center;
+  background: #f5f5f5;
+  padding: 80px;
+  white-space: nowrap;
 }
 .cover img {
-  display: block;
-  width: 100vw;
+  display: inline-block;
+  height: 30vh;
+  margin: 0 10px 20px;
+  background: #ffffff;
 }
 .color_panel {
   display: inline-block;
