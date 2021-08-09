@@ -18,11 +18,18 @@
 		<button id="color_btn" onclick="showSelector()">取色</button>
 	</div>
 	<div class="cover">
-		<img src="./img.jpg" alt="">
-		<img src="https://saas-image.jingwxcx.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png" />
-		<img src="https://liqingyun.oss-cn-hangzhou.aliyuncs.com/ad/1/202.jpg" alt="">
-		<img src="https://liqingyun.oss-cn-hangzhou.aliyuncs.com/picture/img-7044bb2691d94f9171274029766267c5.jpg" alt="">
-		<img src="https://liqingyun.oss-cn-hangzhou.aliyuncs.com/ad/1920x376/102.jpg" alt="">
+		<img
+			src="./img-7044bb2691d94f9171274029766267c5.jpg"
+			onclick="showPic('./img-7044bb2691d94f9171274029766267c5.jpg')" />
+		<img
+			src="https://saas-image.jingwxcx.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png"
+			onclick="showPic('https://saas-image.jingwxcx.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png')" />
+		<img
+			src="https://saas-image.bj.bcebos.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png"
+			onclick="showPic('https://saas-image.bj.bcebos.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png')" />
+		<img
+			src="https://liqingyun.oss-cn-hangzhou.aliyuncs.com/ad/1/202.jpg"
+			onclick="showPic('https://liqingyun.oss-cn-hangzhou.aliyuncs.com/ad/1/202.jpg')" />
 	</div>
 
 	<script>
@@ -40,6 +47,12 @@
 				}
 			}
 			selector.show()
+		}
+
+		function showPic (url) {
+			var xhr = new XMLHttpRequest
+			xhr.open('get', url)
+			xhr.send()
 		}
 	</script>
 </body>
