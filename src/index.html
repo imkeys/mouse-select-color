@@ -4,9 +4,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 	<title>取色</title>
 	<link rel="stylesheet" href="./style.css">
-	<script src="//cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+	<script src="./html2canvas.js"></script>
 	<script src="./color-selector.js"></script>
 </head>
 
@@ -23,16 +26,20 @@
 			onclick="showPic('./img-7044bb2691d94f9171274029766267c5.jpg')" />
 		<img
 			src="https://saas-image.jingwxcx.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png"
-			onclick="showPic('https://saas-image.jingwxcx.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png')" />
+			onclick="showPic('https://saas-image.jingwxcx.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png')" crossorigin="anonymous" />
 		<img
 			src="https://saas-image.bj.bcebos.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png"
-			onclick="showPic('https://saas-image.bj.bcebos.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png')" />
+			onclick="showPic('https://saas-image.bj.bcebos.com/upload_files/2021/08/04/6afbbe9af81677e685f5666e76ad2bae.png')"  crossorigin="anonymous" />
 		<img
 			src="https://liqingyun.oss-cn-hangzhou.aliyuncs.com/ad/1/202.jpg"
 			onclick="showPic('https://liqingyun.oss-cn-hangzhou.aliyuncs.com/ad/1/202.jpg')" />
 		<img
 			src="https://saas-image.jingwxcx.com/upload_files/2021/07/08/20022e2af1ee02b468d151510db64111.jpg"
-			onclick="showPic('https://saas-image.jingwxcx.com/upload_files/2021/07/08/20022e2af1ee02b468d151510db64111.jpg')" />
+			onclick="showPic('https://saas-image.jingwxcx.com/upload_files/2021/07/08/20022e2af1ee02b468d151510db64111.jpg')"  />
+		<img
+			src="https://liqingyun.fwh.bcebos.com/11.jpg"
+			onclick="showPic('https://liqingyun.fwh.bcebos.com/11.jpg')"
+			alt="">
 	</div>
 
 	<script>
@@ -54,7 +61,7 @@
 
 		function showPic (url) {
 			var xhr = new XMLHttpRequest
-			xhr.open('get', url)
+			xhr.open('get', url + '?t=' + Math.ceil(Math.random() * 1000 * 1000))
 			xhr.send()
 		}
 	</script>
